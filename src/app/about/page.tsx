@@ -79,7 +79,7 @@ export default function AboutPage() {
           Ease Me Up is 100% free and open-source. Your support helps cover hosting costs and fuels new feature development.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <a href="https://prajwalshelar100.github.io/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/40 hover:shadow-md transition-all group">
+          <a href="https://prajwalshelar.online" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/40 hover:shadow-md transition-all group">
             <Coffee className="w-6 h-6 text-amber-600" />
             <div>
               <p className="text-sm font-bold text-amber-800 dark:text-amber-400">Support Me</p>
@@ -91,7 +91,7 @@ export default function AboutPage() {
             <Heart className="w-6 h-6 text-violet-600" />
             <div>
               <p className="text-sm font-bold text-violet-800 dark:text-violet-400">UPI Support</p>
-              <p className="text-xs text-violet-600/70 font-mono mt-0.5">your-upi@bank</p>
+              <p className="text-xs text-violet-600/70 font-mono mt-0.5">prajwalshelar100@oksbi</p>
             </div>
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function AboutPage() {
           Ease Me Up is open to contributions! Fork the repo, submit PRs, report issues, or suggest features.
           Every contribution, big or small, is appreciated.
         </p>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold rounded-xl transition-colors shadow-sm">
+        <a href="https://github.com/prajwalshelar100/easemeup" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold rounded-xl transition-colors shadow-sm">
           <Github className="w-4 h-4" /> View on GitHub <ExternalLink className="w-3.5 h-3.5" />
         </a>
       </Card>

@@ -3,12 +3,21 @@
 import { Card } from '@/src/components/ui';
 import { 
   Wrench, Link as LinkIcon, QrCode, Calculator, 
-  Percent, FileText, Type, MessageSquarePlus 
+  Percent, FileText, Type, MessageSquarePlus,
+  Receipt, Files, FileSignature 
 } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ToolsHubPage() {
   const categories = [
+    {
+      name: 'Business Generators',
+      tools: [
+        { name: 'Invoice Generator', desc: 'Create professional invoices', icon: Receipt, href: '/invoice-generator', color: 'bg-blue-600 text-white dark:bg-blue-600' },
+        { name: 'Proposal Generator', desc: 'Build winning proposals', icon: FileSignature, href: '/proposal-generator', color: 'bg-indigo-600 text-white dark:bg-indigo-600' },
+        { name: 'Document Manager', desc: 'Securely manage your files', icon: Files, href: '/documents', color: 'bg-emerald-600 text-white dark:bg-emerald-600' },
+      ]
+    },
     {
       name: 'Utility Tools',
       tools: [

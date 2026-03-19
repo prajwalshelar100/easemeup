@@ -1,112 +1,152 @@
 'use client';
 
-import { useState } from 'react';
-import { Card, Input, Label, Textarea, Button } from '@/src/components/ui';
-import { MessageSquarePlus, Send } from 'lucide-react';
-import { saveData, getData } from '@/src/lib/storage';
+import { Card, Button } from '@/src/components/ui';
+import { Wrench, Briefcase, MessageCircle, ArrowRight } from 'lucide-react';
 
-export default function RequestToolPage() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [toolName, setToolName] = useState('');
-  const [description, setDescription] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+export default function RequestHubPage() {
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!toolName || !description) return;
+  const PHONE = '919987909499';
 
-    const requestData = {
-      id: `req_${Date.now()}`,
-      name,
-      email,
-      toolName,
-      description,
-      status: 'pending'
-    };
-
-    const existingRequests = getData<typeof requestData[]>('tool_requests', []);
-    saveData('tool_requests', [requestData, ...existingRequests]);
-    
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setName('');
-      setEmail('');
-      setToolName('');
-      setDescription('');
-    }, 4000);
-  };
+  const TOOL_FORM = `https://wa.me/${PHONE}?text=${encodeURIComponent('Tool Requirement')}`;
+  const SERVICE_FORM = `https://wa.me/${PHONE}?text=${encodeURIComponent('Service Requirement')}`;
+  const FEEDBACK_FORM = `https://wa.me/${PHONE}?text=${encodeURIComponent('Feedback')}`;
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-8 pt-8">
-      <header className="text-center">
-        <div className="inline-flex p-3 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-2xl mb-4">
-          <MessageSquarePlus className="w-8 h-8" />
+    <div className="w-full max-w-6xl mx-auto px-4 py-10 space-y-16">
+
+      {/* HERO */}
+      <section className="text-center space-y-6">
+        <h1 className="text-4xl font-bold text-slate-900 dark:text-white">
+          Build Anything Your Business Needs 🚀
+        </h1>
+        <p className="text-slate-600 max-w-2xl mx-auto">
+          From tools to full-scale business systems — we design, develop and deliver
+          custom digital solutions tailored for startups, MSMEs, and industrial businesses.
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-4 pt-4">
+          <Button onClick={() => window.open(TOOL_FORM, '_blank')}>
+            Request a Tool
+          </Button>
+          <Button variant="secondary" onClick={() => window.open(SERVICE_FORM, '_blank')}>
+            Request a Service
+          </Button>
+          <Button variant="outline" onClick={() => window.open(FEEDBACK_FORM, '_blank')}>
+            Give Feedback
+          </Button>
         </div>
-        <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-2">Request a New Tool</h1>
-        <p className="text-slate-500 font-medium">Missing a utility or calculator? Let us know what you need built.</p>
-      </header>
+      </section>
 
-      <Card className="p-8 shadow-md border-0 ring-1 ring-slate-200 dark:ring-slate-800 bg-white/50 backdrop-blur-sm dark:bg-slate-900/50">
-        {submitted ? (
-          <div className="text-center py-12 space-y-4">
-            <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Send className="w-8 h-8" />
-            </div>
-            <h2 className="text-2xl font-bold text-emerald-600">Request Sent Successfully!</h2>
-            <p className="text-slate-500">Thanks for helping us improve Ease Me Up. We've saved your request locally and our team will review it.</p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <Label className="mb-2 block">Your Name (Optional)</Label>
-                <Input 
-                  placeholder="John Doe" 
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </div>
-              <div>
-                <Label className="mb-2 block">Email Address (Optional)</Label>
-                <Input 
-                  type="email"
-                  placeholder="john@example.com" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-            </div>
+      {/* SERVICES */}
+      <section className="space-y-6">
+        <h2 className="text-2xl font-bold text-center">Our Services</h2>
 
-            <div className="pt-2">
-              <Label className="mb-2 block font-medium text-slate-900 dark:text-slate-100">Tool Name <span className="text-rose-500">*</span></Label>
-              <Input 
-                placeholder="e.g. JSON Formatter, Currency Converter" 
-                value={toolName}
-                onChange={(e) => setToolName(e.target.value)}
-                required
-                className="h-12"
-              />
-            </div>
+        <div className="grid md:grid-cols-3 gap-6">
 
-            <div>
-              <Label className="mb-2 block font-medium text-slate-900 dark:text-slate-100">Detailed Description <span className="text-rose-500">*</span></Label>
-              <Textarea 
-                placeholder="Describe how this tool should work, typical inputs/outputs, and why it's useful for your workflow..."
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                required
-                className="min-h-[160px] p-4 text-base"
-              />
-            </div>
+          <Card className="p-6 space-y-3">
+            <h3 className="font-bold text-lg">🌐 Web Development</h3>
+            <p className="text-sm text-slate-600">
+              SEO-optimized websites, landing pages, business sites, and fast web apps using Next.js.
+            </p>
+          </Card>
 
-            <Button type="submit" size="lg" className="w-full h-14 text-base font-bold shadow-sm">
-              Submit Request
-            </Button>
-          </form>
-        )}
-      </Card>
+          <Card className="p-6 space-y-3">
+            <h3 className="font-bold text-lg">💻 Software Development</h3>
+            <p className="text-sm text-slate-600">
+              Custom desktop apps, enterprise software, and scalable backend systems.
+            </p>
+          </Card>
+
+          <Card className="p-6 space-y-3">
+            <h3 className="font-bold text-lg">📱 Mobile Applications</h3>
+            <p className="text-sm text-slate-600">
+              Android & cross-platform mobile apps tailored for your business.
+            </p>
+          </Card>
+
+          <Card className="p-6 space-y-3">
+            <h3 className="font-bold text-lg">🤖 AI Tools & Automation</h3>
+            <p className="text-sm text-slate-600">
+              AI-powered tools, chatbots, workflow automation, and smart systems.
+            </p>
+          </Card>
+
+          <Card className="p-6 space-y-3">
+            <h3 className="font-bold text-lg">📊 ERP & Business Systems</h3>
+            <p className="text-sm text-slate-600">
+              Invoice systems, CRM, dashboards, and complete ERP solutions.
+            </p>
+          </Card>
+
+          <Card className="p-6 space-y-3">
+            <h3 className="font-bold text-lg">🏭 Industrial Solutions</h3>
+            <p className="text-sm text-slate-600">
+              Custom software for factories, operations, tracking, and business optimization.
+            </p>
+          </Card>
+
+        </div>
+      </section>
+
+      {/* CTA CARDS */}
+      <section className="grid md:grid-cols-3 gap-6">
+
+        {/* TOOL */}
+        <Card className="p-8 text-center space-y-4 hover:shadow-lg transition">
+          <Wrench className="w-10 h-10 mx-auto text-blue-500" />
+          <h3 className="text-xl font-bold">Request a Tool</h3>
+          <p className="text-sm text-slate-600">
+            Need a custom calculator, generator, or utility? Tell us what you need.
+          </p>
+          <Button
+            className="w-full"
+            onClick={() => window.open(TOOL_FORM, '_blank')}
+          >
+            Submit Tool Request <ArrowRight className="ml-2 w-4 h-4" />
+          </Button>
+        </Card>
+
+        {/* SERVICE */}
+        <Card className="p-8 text-center space-y-4 hover:shadow-lg transition">
+          <Briefcase className="w-10 h-10 mx-auto text-green-500" />
+          <h3 className="text-xl font-bold">Request a Service</h3>
+          <p className="text-sm text-slate-600">
+            Need a website, app, ERP, or full solution? Let’s build it.
+          </p>
+          <Button
+            className="w-full"
+            variant="secondary"
+            onClick={() => window.open(SERVICE_FORM, '_blank')}
+          >
+            Contact Us <ArrowRight className="ml-2 w-4 h-4" />
+          </Button>
+        </Card>
+
+        {/* FEEDBACK */}
+        <Card className="p-8 text-center space-y-4 hover:shadow-lg transition">
+          <MessageCircle className="w-10 h-10 mx-auto text-purple-500" />
+          <h3 className="text-xl font-bold">Feedback</h3>
+          <p className="text-sm text-slate-600">
+            Help us improve our tools and services with your feedback.
+          </p>
+          <Button
+            className="w-full"
+            variant="outline"
+            onClick={() => window.open(FEEDBACK_FORM, '_blank')}
+          >
+            Give Feedback <ArrowRight className="ml-2 w-4 h-4" />
+          </Button>
+        </Card>
+
+      </section>
+
+      {/* TRUST SECTION */}
+      <section className="text-center pt-10">
+        <p className="text-slate-500">
+          Trusted by startups, developers, and businesses for building scalable digital solutions.
+        </p>
+      </section>
+
     </div>
   );
 }

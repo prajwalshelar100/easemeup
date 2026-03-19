@@ -1,2 +1,2 @@
-# Handle Next.js static routing fallback
-/*  /index.html  200
+# Next.js static routing falls back to 404.html naturally.
+# Only add redirects here if you have specific legacy paths.

@@ -5,9 +5,9 @@ import { Card, Input, Button, Label } from '@/src/components/ui';
 import { QrCode, Download, RefreshCw } from 'lucide-react';
 
 export default function QrGeneratorPage() {
-  const [data, setData] = useState('https://easybiz.test');
+  const [data, setData] = useState('https://easemeup.com');
   const [size, setSize] = useState('250');
-  const [qrUrl, setQrUrl] = useState('https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://easybiz.test');
+  const [qrUrl, setQrUrl] = useState('https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://easemeup.com');
 
   const handleGenerate = (e: React.FormEvent) => {
     e.preventDefault();

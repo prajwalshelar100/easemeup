@@ -9,7 +9,7 @@ import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const SITE_URL = 'https://easybiz-saas.pages.dev';
+const SITE_URL = 'https://easemeup.pages.dev';
 
 export const viewport: Viewport = {
   themeColor: '#2563eb',

@@ -3,4 +3,4 @@ Allow: /
 Disallow: /_next/
 Disallow: /api/
 
-Sitemap: https://easybiz-saas.pages.dev/sitemap.xml
+Sitemap: https://easemeup.pages.dev/sitemap.xml

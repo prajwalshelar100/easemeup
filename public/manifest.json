@@ -1,7 +1,7 @@
 {
-  "name": "EasyBiz - Everything your business needs",
-  "short_name": "EasyBiz",
-  "description": "Invoices, clients & tools in one place. A comprehensive open-source business SaaS.",
+  "name": "Ease Me Up - Online Free business management Tool",
+  "short_name": "Ease Me Up",
+  "description": "Professional invoices, client management, and business tools. 100% private and device-based.",
   "start_url": "/dashboard",
   "display": "standalone",
   "background_color": "#f8fafc",
@@ -27,7 +27,6 @@
       "purpose": "maskable"
     }
   ],
-  "screenshots": [],
   "shortcuts": [
     {
       "name": "Dashboard",

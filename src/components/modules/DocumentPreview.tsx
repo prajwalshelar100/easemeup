@@ -54,7 +54,7 @@ export const DocumentPreview = ({ data, items }: { data: DocumentFormValues, ite
       <div ref={invoiceRef} className="invoice-a4 flex flex-col relative text-black bg-white rounded-md p-10 shadow-2xl overflow-hidden min-h-[1122px] w-[794px] mx-auto scale-[0.8] md:scale-100 origin-top">
         {/* SaaS Watermark for Free Tier */}
         <div className="absolute top-8 left-1/2 -translate-x-1/2 -rotate-12 opacity-[0.03] pointer-events-none select-none">
-          <p className="text-8xl font-black whitespace-nowrap uppercase">CREATED WITH EASYBIZ</p>
+          <p className="text-8xl font-black whitespace-nowrap uppercase">CREATED WITH EASE ME UP</p>
         </div>
 
         {/* Header */}

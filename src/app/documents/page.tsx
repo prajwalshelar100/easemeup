@@ -107,7 +107,7 @@ export default function DocumentsSummaryPage() {
                           </span>
                       </td>
                       <td className="px-6 py-4 text-right space-x-2">
-                         <Link href={`/invoice/${doc.id}`} target="_blank">
+                         <Link href={`/invoice/view?id=${doc.id}`} target="_blank">
                            <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-blue-600">
                              <Download className="w-4 h-4" />
                            </Button>

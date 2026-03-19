@@ -4,11 +4,12 @@ import { useBusinessStore } from '@/src/lib/store/useBusinessStore';
 import { Button, Input, Label, Card } from '@/src/components/ui';
 import { ArrowLeft, Save } from 'lucide-react';
 import Link from 'next/link';
-import { useParams, useRouter } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 export default function EditClientPage() {
-  const { id } = useParams();
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id');
   const router = useRouter();
   const { clients, updateClient } = useBusinessStore();
   const client = clients[id as string];
@@ -56,14 +57,14 @@ export default function EditClientPage() {
       ...formData,
     });
     
-    router.replace(`/clients/${client.id}`);
+    router.replace(`/clients/detail?id=${client.id}`);
   };
 
   return (
     <main className="container max-w-3xl mx-auto min-h-screen bg-neutral-50 dark:bg-neutral-950">
       <header className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-neutral-200 dark:bg-neutral-950/80 dark:border-neutral-800 z-10">
         <div className="flex h-14 items-center gap-4 px-4">
-          <Link href={`/clients/${client.id}`}>
+          <Link href={`/clients/detail?id=${client.id}`}>
             <Button variant="ghost" size="icon" className="rounded-full w-8 h-8">
               <ArrowLeft className="w-5 h-5" />
             </Button>

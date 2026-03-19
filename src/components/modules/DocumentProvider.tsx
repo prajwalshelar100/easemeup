@@ -58,8 +58,8 @@ export const DocumentProvider = ({
       formData: data
     });
     
-    // Redirect to dashboard or view page (for now dashboard)
-    router.push('/dashboard');
+    // Redirect to the new static view page
+    router.push(`/invoice/view?id=${docId}`);
   };
 
   return (

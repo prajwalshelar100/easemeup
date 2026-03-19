@@ -1,6 +1,6 @@
 'use client';
 
-import { useParams, useRouter } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { useBusinessStore } from '@/src/lib/store/useBusinessStore';
 import { Button, Card, Input, Label } from '@/src/components/ui';
 import { ArrowLeft, Copy, Sparkles, Check } from 'lucide-react';
@@ -8,7 +8,8 @@ import { useState, useEffect } from 'react';
 import { getData } from '@/src/lib/storage';
 
 export default function AIPromptBuilderPage() {
-  const { id } = useParams();
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id');
   const router = useRouter();
   const { clients } = useBusinessStore();
   const [copied, setCopied] = useState(false);
@@ -66,8 +67,8 @@ Include:
 Output in clean formatted text.
 
 ---
-Developed by: EasyBiz Team
-GitHub: https://github.com/easybiz`;
+Developed by: Ease Me Up Team
+GitHub: https://github.com/easemeup`;
   };
 
   const promptContent = generatePromptText();
@@ -83,7 +84,7 @@ GitHub: https://github.com/easybiz`;
       {/* Top Nav */}
       <header className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-neutral-200 dark:bg-neutral-950/80 dark:border-neutral-800 z-10">
         <div className="flex h-14 items-center gap-4 px-4">
-          <Button variant="ghost" size="icon" className="rounded-full w-8 h-8" onClick={() => router.push(`/clients/${client.id}`)}>
+          <Button variant="ghost" size="icon" className="rounded-full w-8 h-8" onClick={() => router.push(`/clients/detail?id=${client.id}`)}>
             <ArrowLeft className="w-5 h-5" />
           </Button>
           <div className="flex items-center gap-2 flex-1">

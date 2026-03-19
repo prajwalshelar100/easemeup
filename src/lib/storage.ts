@@ -1,9 +1,9 @@
 /**
  * A clean abstraction layer for client-side storage using LocalStorage.
- * Designed to satisfy the 'Data Handling' module requirement for EasyBiz.
+ * Designed to satisfy the 'Data Handling' module requirement for Ease Me Up.
  */
 
-const getStorageKey = (key: string) => `easybiz_${key}`;
+const getStorageKey = (key: string) => `easemeup_${key}`;
 
 export const saveData = <T>(key: string, data: T): boolean => {
   try {

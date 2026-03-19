@@ -7,8 +7,8 @@ export default function AboutPage() {
   return (
     <div className="space-y-8 pb-12 max-w-3xl mx-auto">
       <header>
-        <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">About EasyBiz</h1>
-        <p className="text-slate-500 font-medium mt-1">Know the developer & support the project.</p>
+        <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">About Ease Me Up</h1>
+        <p className="text-slate-500 font-medium mt-1">Online Free business management Tool.</p>
       </header>
 
       {/* App Info */}
@@ -18,10 +18,11 @@ export default function AboutPage() {
             <span className="text-white font-black text-xl">E</span>
           </div>
           <div>
-            <h2 className="text-xl font-extrabold text-slate-900 dark:text-white">EasyBiz</h2>
+            <h2 className="text-xl font-extrabold text-slate-900 dark:text-white">Ease Me Up</h2>
             <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
-              A comprehensive, open-source business management suite. Generate invoices, manage clients,
-              track expenses, and access powerful tools — all from your browser, with zero backend required.
+              A professional, online free business management tool. Generate invoices, manage clients,
+              track expenses, and access powerful utilities — all from your browser, with zero backend required.
+              Your data stays 100% on your device.
             </p>
             <div className="flex flex-wrap gap-2 mt-3">
               {['Next.js', 'TypeScript', 'Tailwind CSS', 'Zustand', 'LocalStorage'].map(tech => (
@@ -44,11 +45,11 @@ export default function AboutPage() {
           Built with ❤️ by a passionate developer. Connect on socials, contribute to the codebase, or buy me a coffee to fuel more features!
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all group">
+          <a href="https://github.com/prajwalshelar100" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all group">
             <Github className="w-5 h-5 text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors" />
             <div>
               <p className="text-sm font-bold text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">GitHub</p>
-              <p className="text-[10px] text-slate-400">Source Code</p>
+              <p className="text-[10px] text-slate-400">prajwalshelar100</p>
             </div>
           </a>
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-sky-300 dark:hover:border-sky-800 transition-all group">
@@ -75,14 +76,14 @@ export default function AboutPage() {
           <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">Support the Project</h2>
         </div>
         <p className="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">
-          EasyBiz is 100% free and open-source. Your support helps cover hosting costs and fuels new feature development.
+          Ease Me Up is 100% free and open-source. Your support helps cover hosting costs and fuels new feature development.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/40 hover:shadow-md transition-all group">
+          <a href="https://prajwalshelar100.github.io/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/40 hover:shadow-md transition-all group">
             <Coffee className="w-6 h-6 text-amber-600" />
             <div>
-              <p className="text-sm font-bold text-amber-800 dark:text-amber-400">Buy Me a Coffee</p>
-              <p className="text-[10px] text-amber-600/70">buymeacoffee.com</p>
+              <p className="text-sm font-bold text-amber-800 dark:text-amber-400">Support Me</p>
+              <p className="text-[10px] text-amber-600/70">Visit Portfolio</p>
             </div>
             <ExternalLink className="w-4 h-4 text-amber-400 ml-auto" />
           </a>
@@ -103,7 +104,7 @@ export default function AboutPage() {
           <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">Contribute</h2>
         </div>
         <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-          EasyBiz is open to contributions! Fork the repo, submit PRs, report issues, or suggest features.
+          Ease Me Up is open to contributions! Fork the repo, submit PRs, report issues, or suggest features.
           Every contribution, big or small, is appreciated.
         </p>
         <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold rounded-xl transition-colors shadow-sm">
@@ -112,7 +113,7 @@ export default function AboutPage() {
       </Card>
 
       <p className="text-center text-xs text-slate-400 dark:text-slate-500 pt-4">
-        EasyBiz v1.0.0 • Made with ❤️ • Open Source under MIT License
+        Ease Me Up v1.0.0 • Made with ❤️ • Open Source under MIT License
       </p>
     </div>
   );

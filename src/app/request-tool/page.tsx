@@ -55,7 +55,7 @@ export default function RequestToolPage() {
               <Send className="w-8 h-8" />
             </div>
             <h2 className="text-2xl font-bold text-emerald-600">Request Sent Successfully!</h2>
-            <p className="text-slate-500">Thanks for helping us improve EasyBiz. We've saved your request locally and our team will review it.</p>
+            <p className="text-slate-500">Thanks for helping us improve Ease Me Up. We've saved your request locally and our team will review it.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">

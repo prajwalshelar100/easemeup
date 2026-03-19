@@ -19,11 +19,11 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'EasyBiz | Everything your business needs',
-  description: 'The ultimate open-source SaaS for managing invoices, clients, expenses, and business tools. Privacy-first, locally powered, and beautifully designed.',
-  keywords: ['easybiz', 'invoice generator', 'client management', 'expense tracker', 'business tools', 'open source saas', 'nextjs business', 'pwa business app'],
-  authors: [{ name: 'EasyBiz Team', url: SITE_URL }],
-  creator: 'EasyBiz',
+  title: 'Ease Me Up | Online Free business management Tool',
+  description: 'Pro invoices, client management, and business tools. 100% private, device-based, and beautifully designed.',
+  keywords: ['ease me up', 'business management tool', 'free invoice generator', 'client directory', 'expense tracker', 'privacy-first saas', 'pwa business app'],
+  authors: [{ name: 'Ease Me Up Team', url: SITE_URL }],
+  creator: 'Ease Me Up',
   publisher: 'Open Source',
   metadataBase: new URL(SITE_URL),
   manifest: '/manifest.json',
@@ -40,29 +40,29 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'EasyBiz',
+    title: 'Ease Me Up',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: SITE_URL,
-    title: 'EasyBiz - Open Source Business Management Suite',
-    description: 'Manage your entire business from one clean, professional interface. Invoices, Projects, Expenses, and Tools included.',
-    siteName: 'EasyBiz',
+    title: 'Ease Me Up - Online Free Business Management Suite',
+    description: 'Protect your privacy while managing your business. Invoices, Projects, Expenses, and Tools—all locally stored.',
+    siteName: 'Ease Me Up',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'EasyBiz - Everything your business needs',
+        alt: 'Ease Me Up - Online Free business management Tool',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'EasyBiz | Everything your business needs',
-    description: 'The ultimate open-source SaaS for managing invoices, clients, and professional tools.',
-    creator: '@easybiz',
+    title: 'Ease Me Up | Online Free business management Tool',
+    description: 'The ultimate private SaaS for managing invoices, clients, and professional tools.',
+    creator: '@easemeup',
     images: ['/og-image.png'],
   },
   robots: {
@@ -82,6 +82,7 @@ export const metadata: Metadata = {
 };
 
 import { RootLayoutClient } from '../components/navigation/RootLayoutClient';
+import { ThemeProvider } from '../components/providers/ThemeProvider';
 import { MessageCircle } from 'lucide-react';
 
 export default function RootLayout({
@@ -92,8 +93,8 @@ export default function RootLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    'name': 'EasyBiz',
-    'description': 'Invoices, clients & tools in one place. Open-source business suite.',
+    'name': 'Ease Me Up',
+    'description': 'Online Free business management Tool. Invoices, clients & tools in one place. 100% private.',
     'url': SITE_URL,
     'applicationCategory': 'BusinessApplication',
     'operatingSystem': 'All',
@@ -104,7 +105,7 @@ export default function RootLayout({
     },
     'author': {
       '@type': 'Organization',
-      'name': 'EasyBiz Team',
+      'name': 'Ease Me Up Team',
     },
   };
 
@@ -113,20 +114,37 @@ export default function RootLayout({
       <head>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="EasyBiz" />
+        <meta name="apple-mobile-web-app-title" content="Ease Me Up" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#2563eb" />
         <meta name="format-detection" content="telephone=no" />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const settings = JSON.parse(localStorage.getItem('easemeup_app_settings') || localStorage.getItem('easybiz_app_settings') || '{}');
+                const theme = settings.theme || 'system';
+                if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className={`${inter.className} min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col`}>
-        <RootLayoutClient>
-          {children}
-        </RootLayoutClient>
+        <ThemeProvider>
+          <RootLayoutClient>
+            {children}
+          </RootLayoutClient>
+        </ThemeProvider>
 
         {/* Persistent WhatsApp Floating Action Button */}
         <a

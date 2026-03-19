@@ -30,7 +30,7 @@ export default function NewClientPage() {
     };
     
     addClient(newClient);
-    router.replace(`/clients/${newClient.id}`); // Redirect directly to the detail view
+    router.replace(`/clients/detail?id=${newClient.id}`); // Redirect directly to the detail view
   };
 
   return (

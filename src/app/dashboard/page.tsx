@@ -41,7 +41,7 @@ export default function DashboardPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `EasyBiz_Export_${new Date().toISOString().split('T')[0]}.csv`;
+    a.download = `EaseMeUp_Export_${new Date().toISOString().split('T')[0]}.csv`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -53,9 +53,13 @@ export default function DashboardPage() {
           <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Dashboard
           </h1>
-          <p className="text-slate-500 font-medium mt-1">Welcome back to EasyBiz. Here's your business snaphot.</p>
+          <p className="text-slate-500 font-medium mt-1">Welcome back to Ease Me Up. Your private business command center.</p>
         </div>
         <div className="flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2 px-4 py-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded-xl">
+             <div className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+             <p className="text-[10px] font-black uppercase text-blue-600 dark:text-blue-400 tracking-tighter">Device-Based Data: Local & Secure</p>
+          </div>
           <Button variant="outline" onClick={handleExport} className="gap-2 rounded-xl shadow-sm border-slate-200 dark:border-slate-800">
             <Download className="w-4 h-4" /> Export CSV
           </Button>
@@ -120,31 +124,33 @@ export default function DashboardPage() {
               recentDocuments.map(doc => {
                 const client = doc.clientId ? clients[doc.clientId] : null;
                 return (
-                  <Card key={doc.id} className="p-4 flex items-center justify-between hover:border-blue-200 dark:hover:border-blue-900 transition-all group">
-                    <div className="flex items-center gap-4">
-                      <div className={`p-2 rounded-xl ${
-                        doc.type === 'INVOICE' ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/30' : 
-                        doc.type === 'PROPOSAL' ? 'bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30' :
-                        'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30'
-                      }`}>
-                        <FileText className="w-5 h-5" />
+                  <Link key={doc.id} href={`/invoice/view?id=${doc.id}`} className="block group font-inter">
+                    <Card className="p-4 flex items-center justify-between hover:border-blue-200 dark:hover:border-blue-900 transition-all">
+                      <div className="flex items-center gap-4">
+                        <div className={`p-2 rounded-xl ${
+                          doc.type === 'INVOICE' ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/30' : 
+                          doc.type === 'PROPOSAL' ? 'bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30' :
+                          'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30'
+                        }`}>
+                          <FileText className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <p className="font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors uppercase text-sm tracking-tight">{doc.documentNumber}</p>
+                          <p className="text-xs text-slate-500 font-medium">{client?.name || 'Walk-in Client'} • {new Date(doc.date).toLocaleDateString()}</p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors uppercase text-sm tracking-tight">{doc.documentNumber}</p>
-                        <p className="text-xs text-slate-500 font-medium">{client?.name || 'Walk-in Client'} • {new Date(doc.date).toLocaleDateString()}</p>
+                      <div className="text-right">
+                        <p className="font-extrabold text-slate-900 dark:text-white">{currencySymbol}{doc.totalAmount.toLocaleString()}</p>
+                        <span className={`text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-tighter ${
+                          doc.status === 'PAID' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' :
+                          doc.status === 'PARTIAL' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400' :
+                          'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400'
+                        }`}>
+                          {doc.status}
+                        </span>
                       </div>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-extrabold text-slate-900 dark:text-white">{currencySymbol}{doc.totalAmount.toLocaleString()}</p>
-                      <span className={`text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-tighter ${
-                        doc.status === 'PAID' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' :
-                        doc.status === 'PARTIAL' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400' :
-                        'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400'
-                      }`}>
-                        {doc.status}
-                      </span>
-                    </div>
-                  </Card>
+                    </Card>
+                  </Link>
                 );
               })
             )}
@@ -173,11 +179,11 @@ export default function DashboardPage() {
           </div>
           
           <Card className="p-6 bg-slate-900 dark:bg-blue-950 border-0 text-white mt-4">
-            <p className="text-sm font-bold opacity-70 mb-2 uppercase tracking-widest">Support</p>
-            <p className="text-sm font-medium mb-6 leading-relaxed">Need help with custom business modules or tools?</p>
+            <p className="text-sm font-bold opacity-70 mb-2 uppercase tracking-widest">Privacy First</p>
+            <p className="text-sm font-medium mb-6 leading-relaxed">Your data is stored 100% on this device. Clearing your browser cache or switching devices will start you on a fresh record unless you export your data.</p>
             <Link href="https://wa.me/919987909499" target="_blank">
               <Button className="w-full bg-white text-slate-900 hover:bg-white/90 font-bold rounded-xl h-12">
-                Chat on WhatsApp
+                Need Support?
               </Button>
             </Link>
           </Card>

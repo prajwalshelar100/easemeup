@@ -70,7 +70,7 @@ export default function ClientsPage() {
             const totalPending = totalBilled - totalEarned;
             
             return (
-              <Link href={`/clients/${client.id}`} key={client.id} className="group">
+              <Link href={`/clients/detail?id=${client.id}`} key={client.id} className="group">
                 <Card className="p-6 h-full flex flex-col justify-between hover:border-blue-400 dark:hover:border-blue-700 transition-all shadow-sm hover:shadow-lg dark:bg-slate-900 dark:border-slate-800">
                   <div className="space-y-4">
                     <div className="flex justify-between items-start">

@@ -1,6 +1,6 @@
 'use client';
 
-import { useParams, useRouter } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { useBusinessStore } from '@/src/lib/store/useBusinessStore';
 import { Button, Card } from '@/src/components/ui';
 import { 
@@ -13,7 +13,8 @@ import { useState, useEffect } from 'react';
 import { getData } from '@/src/lib/storage';
 
 export default function ClientDetailScreen() {
-  const { id } = useParams();
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id');
   const router = useRouter();
   const { clients, documents, projects } = useBusinessStore();
   const [currencySymbol, setCurrencySymbol] = useState('$');
@@ -56,7 +57,7 @@ export default function ClientDetailScreen() {
           <h1 className="font-semibold text-neutral-900 dark:text-neutral-100 flex-1 truncate">
             {client.name}
           </h1>
-          <Button variant="outline" size="sm" className="h-8 text-xs px-2" onClick={() => router.push(`/clients/${client.id}/edit`)}>
+          <Button variant="outline" size="sm" className="h-8 text-xs px-2" onClick={() => router.push(`/clients/edit?id=${client.id}`)}>
             Edit
           </Button>
         </div>
@@ -67,7 +68,7 @@ export default function ClientDetailScreen() {
         <Button variant="ghost" size="sm" className="hidden md:flex gap-2 text-neutral-500 hover:text-neutral-900" onClick={() => router.push('/clients')}>
           <ArrowLeft className="w-4 h-4" /> Back to Clients
         </Button>
-        <Button variant="outline" size="sm" onClick={() => router.push(`/clients/${client.id}/edit`)}>
+        <Button variant="outline" size="sm" onClick={() => router.push(`/clients/edit?id=${client.id}`)}>
           Edit Client
         </Button>
       </div>
@@ -109,7 +110,7 @@ export default function ClientDetailScreen() {
                 <Send className="w-4 h-4 md:w-5 md:h-5" /> Send Proposal
               </Button>
             </Link>
-            <Link href={`/clients/${client.id}/ai-prompt`} className="md:w-full">
+            <Link href={`/clients/ai-prompt?id=${client.id}`} className="md:w-full">
               <Button variant="secondary" className="rounded-xl h-11 md:h-12 md:text-base gap-2 bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400 md:w-full font-bold">
                 <Sparkles className="w-4 h-4 md:w-5 md:h-5" /> AI Payload
               </Button>
@@ -169,7 +170,7 @@ export default function ClientDetailScreen() {
               </Card>
             ) : (
               clientDocs.map(doc => (
-                <Link href={`/invoice/${doc.id}`} key={doc.id} className="group">
+                <Link href={`/invoice/view?id=${doc.id}`} key={doc.id} className="group">
                   <Card className="p-5 flex justify-between items-center hover:border-blue-400 transition-all">
                     <div>
                       <p className="font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors uppercase text-sm tracking-tight">{doc.documentNumber}</p>

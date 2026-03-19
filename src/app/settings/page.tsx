@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Card, Input, Label, Button } from '@/src/components/ui';
 import { Settings2, Save, Upload, Building2, Coins, Moon, Sun, ArrowUpRight } from 'lucide-react';
 import { getData, updateData } from '@/src/lib/storage';
+import { useTheme } from '@/src/components/providers/ThemeProvider';
 
 interface AppSettings {
   businessName: string;
@@ -20,6 +21,7 @@ const defaultSettings: AppSettings = {
 };
 
 export default function SettingsPage() {
+  const { setTheme } = useTheme();
   const [settings, setSettings] = useState<AppSettings>(defaultSettings);
   const [savedStatus, setSavedStatus] = useState(false);
 
@@ -56,7 +58,7 @@ export default function SettingsPage() {
           <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300">
             Global Settings
           </h1>
-          <p className="text-slate-500 font-medium text-sm mt-1">Configure your EasyBiz workspace</p>
+          <p className="text-slate-500 font-medium text-sm mt-1">Configure your Ease Me Up workspace</p>
         </div>
       </header>
 
@@ -135,7 +137,11 @@ export default function SettingsPage() {
               {['light', 'dark', 'system'].map((t) => (
                 <button
                   key={t}
-                  onClick={() => setSettings({ ...settings, theme: t as 'light' | 'dark' | 'system' })}
+                  onClick={() => {
+                    const newTheme = t as 'light' | 'dark' | 'system';
+                    setSettings({ ...settings, theme: newTheme });
+                    setTheme(newTheme);
+                  }}
                   className={`flex-1 h-12 rounded-xl border-2 text-sm font-medium capitalize transition-all ${
                     settings.theme === t
                       ? 'border-blue-600 bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400'
@@ -145,6 +151,21 @@ export default function SettingsPage() {
                   {t}
                 </button>
               ))}
+            </div>
+          </Card>
+
+          <Card className="p-6 border-blue-100 dark:border-blue-900/30 bg-blue-50/30 dark:bg-blue-900/10">
+            <h2 className="text-lg font-bold mb-4 flex items-center gap-2 text-blue-800 dark:text-blue-300">
+              🛡️ Data Privacy & Persistence
+            </h2>
+            <div className="space-y-3 text-sm text-blue-700 dark:text-blue-400 leading-relaxed font-medium">
+              <p>Ease Me Up is a <strong>Private-First</strong> tool. All your data is stored directly in your browser's local storage.</p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>No data is uploaded to any server.</li>
+                <li>Your data is consistent on <strong>this device and browser only</strong>.</li>
+                <li>Clearing browser history/cache may delete your business data.</li>
+                <li>Use the <strong>Export CSV</strong> feature on the Dashboard to backup your records.</li>
+              </ul>
             </div>
           </Card>
 
@@ -191,15 +212,15 @@ export default function SettingsPage() {
                <div className="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-black text-blue-600">
                  DB
                </div>
-               <div>
-                 <p className="font-bold text-slate-900 dark:text-white">EasyBiz Dev Team</p>
-                 <p className="text-xs text-slate-500 font-medium">Full-Stack SaaS Engineers</p>
-               </div>
+                <div>
+                  <p className="text-center text-xs text-slate-400 dark:text-slate-500 pt-4">
+        Ease Me Up v1.0.0 • Made with ❤️ by <a href="https://prajwalshelar100.github.io/" target="_blank" className="hover:text-blue-600 transition-colors">Prajwal Shelar</a> • MIT License
+      </p>
+                </div>
             </div>
             
             <div className="space-y-3">
               {[
-                { name: 'Twitter', icon: '🐦', url: 'https://twitter.com' },
                 { name: 'GitHub', icon: '🐙', url: 'https://github.com' },
                 { name: 'LinkedIn', icon: '💼', url: 'https://linkedin.com' },
               ].map(social => (
@@ -219,10 +240,10 @@ export default function SettingsPage() {
 
             <div className="mt-8 pt-8 border-t border-slate-100 dark:border-slate-800 text-center">
                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 italic">Support this open source project</p>
-               <Button className="w-full bg-amber-400 hover:bg-amber-500 text-amber-950 font-black rounded-xl gap-2 h-11 shadow-sm shadow-amber-200">
-                 ☕ Buy Me a Coffee
+               <Button className="w-full bg-amber-400 hover:bg-amber-500 text-amber-950 font-black rounded-xl gap-2 h-11 shadow-sm shadow-amber-200" onClick={() => window.open('https://prajwalshelar100.github.io/', '_blank')}>
+                 ☕ Support Developer
                </Button>
-               <p className="text-[10px] text-slate-500 mt-3 font-medium">UPI: dev@easybiz.upi</p>
+                <p className="text-[10px] text-slate-500 mt-3 font-medium">UPI: prajwalshelar100@oksbi</p>
             </div>
           </Card>
         </div>

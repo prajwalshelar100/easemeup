@@ -1,35 +1,33 @@
-# EasyBiz SaaS UI
+# Ease Me Up - Online Free Business Management Tool
 
 **Everything your business needs. Invoices, clients & tools in one place.**
 
-EasyBiz is a premium, open-source SaaS user interface designed for small businesses, freelancers, and agencies. It's built with **Next.js 14**, **Tailwind CSS**, and **Zustand**, emphasizing privacy, speed, and aesthetics.
+Ease Me Up is a premium, privacy-first business management suite designed for freelancers, agencies, and small businesses. Built with **Next.js 16**, **Tailwind CSS**, and **Zustand**, it offers a professional interface that runs entirely in your browser.
 
-![EasyBiz Landing Page](https://via.placeholder.com/1200x630/2563eb/ffffff?text=EasyBiz+SaaS+UI)
+![Ease Me Up Branding](https://via.placeholder.com/1200x630/2563eb/ffffff?text=Ease+Me+Up+-+Private+Business+Suite)
 
-## ✨ Features
+## ✨ Core Features
 
-- **📊 Dashboard**: Real-time revenue analytics and financial overview.
-- **📑 Document Generators**: Professional Invoices, Proposals, and Quotations.
-- **👥 Client Management**: Full customer database with balance tracking.
-- **📁 Project Hub**: Milestone tracking and delivery management.
+- **📊 Dashboard**: Real-time business analytics and financial snapshots.
+- **📑 Document Generators**: Professional Invoices, Proposals, Quotations, and Receipts.
+- **🛡️ Privacy-First**: 100% Device-Based storage. Your data never leaves your browser.
+- **👥 Client Management**: Full customer database with balance tracking and AI-powered prompt builder.
 - **🛠️ Utility Ecosystem**:
-  - URL Shortener (TinyURL Integrated)
-  - QR Code Generator
-  - GST / Tax Calculators
+  - URL Shortener & QR Code Generator
+  - GST / Percentage Calculators
   - Text Case Converter & Word Counter
-- **🔒 Privacy-First**: All data is stored locally in your browser (LocalStorage). No backend required.
-- **🎨 Modern Design**: Beautifully crafted with Slate & Blue color scheme, dark mode support, and premium micro-animations.
+- **📱 PWA Ready**: Installable as a Chrome/Desktop application with offline capabilities.
+- **🎨 Premium UI**: Modern design with dark mode support and universal theme engine.
 
 ## 🚀 Quick Start
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/prajwalshelar/easybiz-saas.git
+   git clone https://github.com/prajwalshelar/ease-me-up.git
    ```
 
 2. **Install dependencies:**
    ```bash
-   cd easybiz-saas
    npm install
    ```
 
@@ -38,23 +36,26 @@ EasyBiz is a premium, open-source SaaS user interface designed for small busines
    npm run dev
    ```
 
-4. **Visit [localhost:3000](http://localhost:3000)** in your browser.
+4. **Production Build:**
+   ```bash
+   npm run build
+   ```
 
 ## 🛠️ Tech Stack
 
-- **Core**: Next.js 14 (App Router), TypeScript
-- **Styling**: Tailwind CSS, Lucide React
-- **State**: Zustand (with Persist Middleware)
-- **Validation**: Zod (for Invoice data structures)
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS, Lucide React, Framer Motion
+- **State**: Zustand (LocalStorage persistence)
+- **Deployment**: Optimized for Cloudflare Pages (Static Export)
 
-## 🤝 Contribution
+## 🤝 Support & Contribution
 
-This is an open-source project. Feel free to fork, theme it, or contribute new modules!
+Ease Me Up is an open-source project. Feel free to fork and contribute!
 
-Developed with ❤️ by [EasyBiz Dev Team](https://github.com/prajwalshelar).
+Developed with ❤️ by [Prajwal Shelar](https://prajwalshelar.online/).
 
 ---
 
 ### Support the Project
-If you find this project useful, consider supporting the developer:
-☕ **Buy Me a Coffee**: dev@easybiz.upi (UPI)
+If you find this tool helpful, consider supporting the development:
+☕ **UPI Support**: `prajwalshelar100@oksbi`

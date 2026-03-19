@@ -83,7 +83,7 @@ export default function PaymentsPage() {
                     <p className="text-3xl font-black text-slate-900 dark:text-white">{currencySymbol}{due.toLocaleString()}</p>
                   </div>
 
-                  <Link href={`/invoice/${doc.id}/pay`}>
+                  <Link href={`/invoice/view?id=${doc.id}`}>
                     <Button className="w-full rounded-xl bg-slate-900 text-white font-bold h-11 gap-2">
                       Record Payment <ArrowUpRight className="w-4 h-4" />
                     </Button>

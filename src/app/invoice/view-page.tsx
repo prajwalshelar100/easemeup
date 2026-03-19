@@ -1,6 +1,6 @@
 'use client';
 
-import { useParams, useRouter } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { useBusinessStore } from '@/src/lib/store/useBusinessStore';
 import { Button } from '@/src/components/ui';
 import { ArrowLeft } from 'lucide-react';
@@ -10,7 +10,8 @@ import { CalculationEngine, LineItemResult } from '@/src/services/CalculationEng
 import { useEffect, useState } from 'react';
 
 export default function InvoiceViewPage() {
-  const { id } = useParams();
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id');
   const router = useRouter();
   const { documents } = useBusinessStore();
   const [mounted, setMounted] = useState(false);
@@ -43,7 +44,7 @@ export default function InvoiceViewPage() {
       <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/80 backdrop-blur-md dark:border-neutral-800 dark:bg-neutral-950/80">
         <div className="container mx-auto max-w-5xl flex h-14 md:h-16 items-center justify-between px-4">
           <div className="flex items-center gap-2 md:gap-4">
-            <Link href={docData.clientId ? `/clients/${docData.clientId}` : '/dashboard'}>
+            <Link href={docData.clientId ? `/clients/detail?id=${docData.clientId}` : '/dashboard'}>
               <Button variant="ghost" size="sm" className="gap-2 px-2 md:px-3">
                 <ArrowLeft className="w-4 h-4" /> <span className="hidden md:inline">Back</span>
               </Button>

@@ -44,7 +44,7 @@ export default function AboutPage() {
         <p className="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">
           Built with ❤️ by a passionate developer. Connect on socials, contribute to the codebase, or buy me a coffee to fuel more features!
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <a href="https://github.com/prajwalshelar100" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all group">
             <Github className="w-5 h-5 text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors" />
             <div>
@@ -52,18 +52,11 @@ export default function AboutPage() {
               <p className="text-[10px] text-slate-400">prajwalshelar100</p>
             </div>
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-sky-300 dark:hover:border-sky-800 transition-all group">
-            <Twitter className="w-5 h-5 text-slate-400 group-hover:text-sky-500 transition-colors" />
+          <a href="https://prajwalshelar.online" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-800 transition-all group lg:col-span-1">
+            <ExternalLink className="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors" />
             <div>
-              <p className="text-sm font-bold text-slate-700 dark:text-slate-300 group-hover:text-sky-600 transition-colors">Twitter</p>
-              <p className="text-[10px] text-slate-400">Updates</p>
-            </div>
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-800 transition-all group">
-            <Linkedin className="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors" />
-            <div>
-              <p className="text-sm font-bold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 transition-colors">LinkedIn</p>
-              <p className="text-[10px] text-slate-400">Connect</p>
+              <p className="text-sm font-bold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 transition-colors">Portfolio</p>
+              <p className="text-[10px] text-slate-400">prajwalshelar.online</p>
             </div>
           </a>
         </div>
@@ -79,21 +72,21 @@ export default function AboutPage() {
           Ease Me Up is 100% free and open-source. Your support helps cover hosting costs and fuels new feature development.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <a href="https://prajwalshelar.online" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/40 hover:shadow-md transition-all group">
+          <a href="upi://pay?pa=prajwalshelar100@oksbi&pn=Prajwal%20Shelar&cu=INR&tn=Buy%20me%20a%20coffee" className="flex items-center gap-3 p-4 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/40 hover:shadow-md transition-all group">
             <Coffee className="w-6 h-6 text-amber-600" />
             <div>
-              <p className="text-sm font-bold text-amber-800 dark:text-amber-400">Support Me</p>
-              <p className="text-[10px] text-amber-600/70">Visit Portfolio</p>
+              <p className="text-sm font-bold text-amber-800 dark:text-amber-400">Buy me a coffee</p>
+              <p className="text-[10px] text-amber-600/70">Support via UPI</p>
             </div>
             <ExternalLink className="w-4 h-4 text-amber-400 ml-auto" />
           </a>
-          <div className="flex items-center gap-3 p-4 rounded-xl bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-900/40">
+          <a href="upi://pay?pa=prajwalshelar100@oksbi&pn=Prajwal%20Shelar&cu=INR&tn=Support%20EaseMeUp" className="flex items-center gap-3 p-4 rounded-xl bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-900/40 hover:shadow-md transition-all group">
             <Heart className="w-6 h-6 text-violet-600" />
             <div>
               <p className="text-sm font-bold text-violet-800 dark:text-violet-400">UPI Support</p>
               <p className="text-xs text-violet-600/70 font-mono mt-0.5">prajwalshelar100@oksbi</p>
             </div>
-          </div>
+          </a>
         </div>
       </Card>
 

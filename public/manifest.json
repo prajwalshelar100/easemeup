@@ -1,0 +1,48 @@
+{
+  "name": "EasyBiz - Everything your business needs",
+  "short_name": "EasyBiz",
+  "description": "Invoices, clients & tools in one place. A comprehensive open-source business SaaS.",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "orientation": "portrait",
+  "scope": "/",
+  "categories": ["business", "finance", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "url": "/dashboard",
+      "description": "Go to Dashboard"
+    },
+    {
+      "name": "New Invoice",
+      "url": "/invoice-generator",
+      "description": "Create a new invoice"
+    },
+    {
+      "name": "Clients",
+      "url": "/clients",
+      "description": "Manage your clients"
+    }
+  ]
+}

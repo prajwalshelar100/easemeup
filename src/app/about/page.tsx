@@ -1,0 +1,119 @@
+'use client';
+
+import { Card } from '@/src/components/ui';
+import { Github, Twitter, Linkedin, Heart, Coffee, ExternalLink, Code2, Sparkles } from 'lucide-react';
+
+export default function AboutPage() {
+  return (
+    <div className="space-y-8 pb-12 max-w-3xl mx-auto">
+      <header>
+        <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">About EasyBiz</h1>
+        <p className="text-slate-500 font-medium mt-1">Know the developer & support the project.</p>
+      </header>
+
+      {/* App Info */}
+      <Card className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-blue-100 dark:border-blue-900/30">
+        <div className="flex items-start gap-4">
+          <div className="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/30 shrink-0">
+            <span className="text-white font-black text-xl">E</span>
+          </div>
+          <div>
+            <h2 className="text-xl font-extrabold text-slate-900 dark:text-white">EasyBiz</h2>
+            <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+              A comprehensive, open-source business management suite. Generate invoices, manage clients,
+              track expenses, and access powerful tools — all from your browser, with zero backend required.
+            </p>
+            <div className="flex flex-wrap gap-2 mt-3">
+              {['Next.js', 'TypeScript', 'Tailwind CSS', 'Zustand', 'LocalStorage'].map(tech => (
+                <span key={tech} className="px-2.5 py-1 bg-white dark:bg-slate-800 rounded-lg text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider border border-slate-200 dark:border-slate-700">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Card>
+
+      {/* Developer Card */}
+      <Card className="p-6">
+        <div className="flex items-center gap-3 mb-5">
+          <Sparkles className="w-5 h-5 text-blue-600" />
+          <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">Know the Developer</h2>
+        </div>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">
+          Built with ❤️ by a passionate developer. Connect on socials, contribute to the codebase, or buy me a coffee to fuel more features!
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all group">
+            <Github className="w-5 h-5 text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors" />
+            <div>
+              <p className="text-sm font-bold text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">GitHub</p>
+              <p className="text-[10px] text-slate-400">Source Code</p>
+            </div>
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-sky-300 dark:hover:border-sky-800 transition-all group">
+            <Twitter className="w-5 h-5 text-slate-400 group-hover:text-sky-500 transition-colors" />
+            <div>
+              <p className="text-sm font-bold text-slate-700 dark:text-slate-300 group-hover:text-sky-600 transition-colors">Twitter</p>
+              <p className="text-[10px] text-slate-400">Updates</p>
+            </div>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-800 transition-all group">
+            <Linkedin className="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors" />
+            <div>
+              <p className="text-sm font-bold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 transition-colors">LinkedIn</p>
+              <p className="text-[10px] text-slate-400">Connect</p>
+            </div>
+          </a>
+        </div>
+      </Card>
+
+      {/* Support */}
+      <Card className="p-6 border-amber-100 dark:border-amber-900/30">
+        <div className="flex items-center gap-3 mb-5">
+          <Coffee className="w-5 h-5 text-amber-600" />
+          <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">Support the Project</h2>
+        </div>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">
+          EasyBiz is 100% free and open-source. Your support helps cover hosting costs and fuels new feature development.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/40 hover:shadow-md transition-all group">
+            <Coffee className="w-6 h-6 text-amber-600" />
+            <div>
+              <p className="text-sm font-bold text-amber-800 dark:text-amber-400">Buy Me a Coffee</p>
+              <p className="text-[10px] text-amber-600/70">buymeacoffee.com</p>
+            </div>
+            <ExternalLink className="w-4 h-4 text-amber-400 ml-auto" />
+          </a>
+          <div className="flex items-center gap-3 p-4 rounded-xl bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-900/40">
+            <Heart className="w-6 h-6 text-violet-600" />
+            <div>
+              <p className="text-sm font-bold text-violet-800 dark:text-violet-400">UPI Support</p>
+              <p className="text-xs text-violet-600/70 font-mono mt-0.5">your-upi@bank</p>
+            </div>
+          </div>
+        </div>
+      </Card>
+
+      {/* Contribute */}
+      <Card className="p-6 border-emerald-100 dark:border-emerald-900/30">
+        <div className="flex items-center gap-3 mb-5">
+          <Code2 className="w-5 h-5 text-emerald-600" />
+          <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">Contribute</h2>
+        </div>
+        <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+          EasyBiz is open to contributions! Fork the repo, submit PRs, report issues, or suggest features.
+          Every contribution, big or small, is appreciated.
+        </p>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold rounded-xl transition-colors shadow-sm">
+          <Github className="w-4 h-4" /> View on GitHub <ExternalLink className="w-3.5 h-3.5" />
+        </a>
+      </Card>
+
+      <p className="text-center text-xs text-slate-400 dark:text-slate-500 pt-4">
+        EasyBiz v1.0.0 • Made with ❤️ • Open Source under MIT License
+      </p>
+    </div>
+  );
+}
